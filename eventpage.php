@@ -3,22 +3,28 @@
 	include "functional.php";
 	include "connection.php";
 	$id = $_GET['id'];
-
 	$sql_query = "SELECT * FROM `events` WHERE `id` = '$id'";
 	$result_query = mysqli_query($connection,$sql_query);
 	$data = mysqli_fetch_all($result_query,MYSQLI_ASSOC);
-
-  $images = array($data[0]['image1_url']);
-  $i = 2;
-  while($i <= 10) {
-    if($data[0]["image".$i."_url"] == "" || $data[0]["image".$i."_url"] == " ") {
-      break;
+  try {  
+    if($data[0]['title'] == "") {
+      throw new Exception("Error Processing Request", 1);
     }
-    else {
-      array_push($images,$data[0]["image".$i."_url"]);
-    }
-    $i++;
   }
+  catch (Exception $e) {
+    header('Location: 404.php');
+  }
+    $images = array($data[0]['image1_url']);
+    $i = 2;
+    while($i <= 10) {
+      if($data[0]["image".$i."_url"] == "" || $data[0]["image".$i."_url"] == " ") {
+        break;
+      }
+      else {
+        array_push($images,$data[0]["image".$i."_url"]);
+      }
+      $i++;
+    }
  ?>
  <!DOCTYPE html>
 <html>
