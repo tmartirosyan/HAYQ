@@ -7,7 +7,14 @@
 	$sql_query = "SELECT * FROM `programs` WHERE `id` = '$id'";
 	$result_query = mysqli_query($connection,$sql_query);
 	$data = mysqli_fetch_all($result_query,MYSQLI_ASSOC);
-
+  try {  
+    if($data[0]['title'] == "") {
+      throw new Exception("Error Processing Request", 1);
+    }
+  }
+  catch (Exception $e) {
+    header('Location: 404.php');
+  }
   $images = array($data[0]['image1_url']);
   $i = 2;
   while($i <= 10) {
