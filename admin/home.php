@@ -27,6 +27,7 @@
 		  <a href="../" class="w3-bar-item w3-button"><img style="width:30px;" src="<?php echo "../".$small_logo_path; ?>"></a>
 		  <a href="actions/add.php?action=event&add=false" class="w3-bar-item w3-button">Add Event</a>
 		  <a href="actions/add.php?action=program&add=false" class="w3-bar-item w3-button">Add Program</a>
+		  <a href="../" class="w3-bar-item w3-button">Log Out</a>
 		</div>
 
 	    <div class="w3-bottombar w3-border-green">
