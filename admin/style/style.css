@@ -1,0 +1,16 @@
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: "Raleway", sans-serif
+}
+.event-widget {
+	width: 30%;
+}
+.for-button {
+	margin: 7px 0;
+}
+.add_form {
+	width: 70%;
+	margin: auto !important;
+}
+.del-form-widget {
+	width: 45%;
+}
